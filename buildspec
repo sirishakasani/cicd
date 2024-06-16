@@ -1,0 +1,19 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Installing NGINX 
+      - yum install nginx -y
+  build:
+    commands:
+      - echo build started on $(date) 
+      - cp index.html /home/ec2-user
+  post_build:
+    commands:
+      - echo Build completed on $(date)
+
+artifacts:
+  files:
+    - '**/*'
+
